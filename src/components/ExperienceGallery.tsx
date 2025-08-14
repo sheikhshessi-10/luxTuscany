@@ -12,25 +12,25 @@ const ExperienceGallery = ({ onRequestVideo, onRequestCuratedCall }: ExperienceG
 
   const experiences = [
     {
-      image: "/assets/images/tuscany1.jpg",
+      image: "/images/tuscany1.jpg",
       caption: "Sipping Brunello while the sun sets behind the hills.",
       location: "Montalcino, Tuscany",
       year: "2024"
     },
     {
-      image: "/assets/images/tuscany2.jpg", 
+      image: "/images/tuscany2.jpg", 
       caption: "Laughing with friends over truffle pasta made just for you.",
       location: "San Gimignano, Tuscany",
       year: "2024"
     },
     {
-      image: "/assets/images/tuscany3.jpg",
+      image: "/images/tuscany3.jpg",
       caption: "Private villa dinners where every moment feels like family.",
       location: "Chianti, Tuscany", 
       year: "2024"
     },
     {
-      image: "/assets/images/tuscany4.jpg",
+      image: "/images/tuscany4.jpg",
       caption: "Walking through ancient olive groves at golden hour.",
       location: "Val d'Orcia, Tuscany",
       year: "2024"
