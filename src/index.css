@@ -1,0 +1,156 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Lato:wght@300;400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Luxury Tuscany Design System */
+@layer base {
+  :root {
+    /* Core Brand Colors */
+    --tuscan-red: 7 57% 28%;        /* #7A1812 */
+    --chianti-wine: 351 83% 24%;    /* #6B0F1A */
+    --warm-gold: 37 47% 60%;        /* #C9A46A */
+    --antique-champagne: 39 40% 68%; /* #D4B483 */
+    --cream: 39 75% 97%;            /* #FDF8F2 */
+    --charcoal: 30 8% 17%;          /* #2E2B28 */
+    --olive-green: 74 22% 39%;      /* #6D7B4B */
+    
+    /* Semantic Design Tokens */
+    --background: var(--cream);
+    --foreground: var(--charcoal);
+    
+    --primary: var(--tuscan-red);
+    --primary-foreground: var(--cream);
+    
+    --secondary: var(--warm-gold);
+    --secondary-foreground: var(--charcoal);
+    
+    --accent: var(--olive-green);
+    --accent-foreground: var(--cream);
+    
+    --muted: 39 20% 95%;
+    --muted-foreground: var(--charcoal);
+    
+    --hero: var(--chianti-wine);
+    --hero-foreground: var(--cream);
+    
+    --luxury: var(--antique-champagne);
+    --luxury-foreground: var(--charcoal);
+    
+    --card: var(--cream);
+    --card-foreground: var(--charcoal);
+    
+    --border: 39 15% 88%;
+    --input: 39 15% 88%;
+    --ring: var(--warm-gold);
+    
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-background text-foreground font-body;
+    font-feature-settings: "kern" 1, "liga" 1;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+    font-feature-settings: "kern" 1, "liga" 1, "swsh" 1;
+  }
+}
+
+@layer components {
+  /* Hero Section */
+  .hero-overlay {
+    @apply absolute inset-0 bg-gradient-to-b from-black/30 via-black/10 to-black/60;
+  }
+  
+  /* Luxury Card */
+  .luxury-card {
+    @apply bg-card/80 backdrop-blur-sm border border-border/20 rounded-lg p-8 transition-all duration-500 hover:bg-card/90 hover:shadow-2xl hover:-translate-y-1;
+  }
+  
+  /* Quote Styling */
+  .luxury-quote {
+    @apply relative text-lg italic text-foreground/80;
+  }
+  
+  .luxury-quote::before {
+    content: '"';
+    @apply absolute -top-4 -left-2 text-6xl text-secondary font-display leading-none opacity-60;
+  }
+  
+  /* Process Steps */
+  .process-step {
+    @apply relative bg-gradient-to-br from-card to-card/80 border border-border/30 rounded-xl p-8 transition-all duration-300 hover:shadow-xl hover:border-secondary/30;
+  }
+  
+  /* Invitation Button */
+  .invitation-btn {
+    @apply bg-gradient-to-r from-primary to-hero text-primary-foreground px-8 py-4 rounded-full font-medium tracking-wide transition-all duration-300 hover:shadow-2xl hover:scale-105 hover:from-hero hover:to-primary;
+  }
+  
+  /* Gold Accent Button */
+  .gold-btn {
+    @apply bg-gradient-to-r from-secondary to-luxury text-secondary-foreground px-6 py-3 rounded-full font-medium tracking-wide transition-all duration-300 hover:shadow-xl hover:scale-105;
+  }
+}
+
+/* Custom Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.6s ease-out forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.6s ease-out forwards;
+}
+
+/* Scroll-triggered animations */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.scroll-reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
